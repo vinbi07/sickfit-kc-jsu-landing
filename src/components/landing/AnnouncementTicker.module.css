@@ -1,0 +1,34 @@
+.ticker {
+  background: var(--red);
+  color: var(--white);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.track {
+  display: inline-block;
+  padding: 12px 0;
+  font-family: var(--font-anton), sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  animation: scroll 26s linear infinite;
+}
+
+.track span {
+  margin: 0 28px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

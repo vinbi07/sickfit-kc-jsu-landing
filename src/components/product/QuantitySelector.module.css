@@ -1,0 +1,38 @@
+.group {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--navy);
+}
+
+.button {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--navy);
+}
+
+.button:hover:not(:disabled) {
+  background: var(--paper);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: -3px;
+}
+
+.value {
+  min-width: 44px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}

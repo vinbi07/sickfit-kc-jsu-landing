@@ -1,0 +1,49 @@
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 18px 0 22px;
+}
+
+.price {
+  font-family: var(--font-anton), sans-serif;
+  font-size: 30px;
+}
+
+.compareAtPrice {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-size: 16px;
+}
+
+.availability {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.availabilityUnavailable {
+  color: var(--red);
+}
+
+.quantityRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.quantityLabel {
+  color: var(--muted);
+}
+
+.notConfigured {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}

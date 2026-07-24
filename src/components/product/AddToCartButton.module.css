@@ -1,0 +1,13 @@
+.status {
+  margin-top: 12px;
+  font-size: 13.5px;
+}
+
+.statusError {
+  color: var(--red);
+}
+
+.statusSuccess {
+  color: var(--navy);
+  font-weight: 600;
+}

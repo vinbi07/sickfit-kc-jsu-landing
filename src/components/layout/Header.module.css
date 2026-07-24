@@ -1,0 +1,57 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 62px;
+}
+
+.lockup {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-anton), sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.sf {
+  color: var(--red);
+}
+
+.kc {
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.x {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 400;
+  opacity: 0.4;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 520px) {
+  .lockup {
+    font-size: 12px;
+  }
+}
