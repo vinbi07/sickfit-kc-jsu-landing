@@ -34,10 +34,20 @@
   background: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, .3) 90%,
+    rgba(0, 0, 0, .8) 50%,
     rgba(0, 0, 0, 0) 100%
   );
   pointer-events: none;
+}
+
+@media screen and (max-width: 767px) {
+.hero::after{
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
 }
 
 .content {

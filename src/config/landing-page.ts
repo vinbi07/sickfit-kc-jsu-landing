@@ -98,6 +98,25 @@ export const landingPageConfig = {
       "Three student-athletes who carry the load on both sides of the ball. This is their pack, built with them for the 2026 season.",
     roster: [
       {
+        number: "11",
+        position: "Quarterback · #11",
+        name: "Jared Lockhart",
+        credential: "Starting Quarterback",
+        photo: {
+          src: "/players/Athlete11.jpeg",
+          alt: "Jared Lockhart athlete photo",
+          placeholderLabel: "Athlete photo · [kc1400 approved image]",
+        },
+        quote: {
+          name: "Jared Lockhart",
+          handle: "@lockhartjared1",
+          avatarSrc: "/players/jlockhearttwitter.jpg",
+          quote:
+            "Pressure creates opportunities. I trust the work I've put in, and I trust the gear I wear. SickFit is apart of how I take care of body.",
+          isDraft: false,
+        },
+      },
+      {
         number: "15",
         position: "Defensive Back · #15",
         name: "Kam Sallis",
@@ -112,8 +131,8 @@ export const landingPageConfig = {
           handle: "@KameronSallis",
           avatarSrc: "/players/kamSallistwitter.jpg",
           quote:
-            "Everything I do starts from the ground up. If my feet aren't right by the fourth quarter, nothing else is. That's why this collab made sense to me.",
-          isDraft: true,
+            "Every rep matters. Every detail matters. That's why I only wear gear like SickFit that's ready to compete.",
+          isDraft: false,
         },
       },
       {
@@ -131,27 +150,8 @@ export const landingPageConfig = {
           handle: "@NateRembert",
           avatarSrc: "/players/NateRembertTwitter.jpg",
           quote:
-            "Routes get won on your feet. Fresh legs late in the game is the whole thing. Good socks aren't an accessory, they're equipment.",
-          isDraft: true,
-        },
-      },
-      {
-        number: "11",
-        position: "Quarterback · #11",
-        name: "Jared Lockhart",
-        credential: "Starting Quarterback",
-        photo: {
-          src: "/players/Athlete11.jpeg",
-          alt: "Jared Lockhart athlete photo",
-          placeholderLabel: "Athlete photo · [kc1400 approved image]",
-        },
-        quote: {
-          name: "Jared Lockhart",
-          handle: "@lockhartjared1",
-          avatarSrc: "/players/jlockhearttwitter.jpg",
-          quote:
-            "I'm on my feet every snap and every practice in between. Recovery starts the second the cleats come off. These are part of how I take care of my body.",
-          isDraft: true,
+            "When you expect greatness from yourself, every piece of your game should match that standard including your socks.",
+          isDraft: false,
         },
       },
     ] satisfies Athlete[],
