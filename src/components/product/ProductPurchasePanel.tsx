@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 
 import type { LandingProductConfig } from "@/types/product";
@@ -90,7 +91,20 @@ export function ProductPurchasePanel({ config, product, onVariantChange }: Produ
   return (
     <div>
       <div className={styles.priceRow}>
-        <span className={styles.price}>{priceLabel}</span>
+        <span className={styles.price}>
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.span
+              key={priceLabel}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              style={{ display: "inline-block" }}
+            >
+              {priceLabel}
+            </motion.span>
+          </AnimatePresence>
+        </span>
         {selectedVariant?.compareAtPrice ? (
           <span className={styles.compareAtPrice}>
             {formatMoney(
@@ -104,7 +118,18 @@ export function ProductPurchasePanel({ config, product, onVariantChange }: Produ
       <p
         className={[styles.availability, isAvailable ? "" : styles.availabilityUnavailable].join(" ")}
       >
-        {isAvailable ? "In stock" : "Sold out"}
+        <AnimatePresence initial={false}>
+          <motion.span
+            key={isAvailable ? "in-stock" : "sold-out"}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+            style={{ display: "inline-block" }}
+          >
+            {isAvailable ? "In stock" : "Sold out"}
+          </motion.span>
+        </AnimatePresence>
       </p>
 
       <VariantSelector

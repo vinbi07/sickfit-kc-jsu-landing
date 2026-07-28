@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/Reveal";
+import { MotionCtaLink } from "@/components/motion/MotionCtaLink";
 import { landingPageConfig } from "@/config/landing-page";
 
 import styles from "./FinalCTASection.module.css";
@@ -8,11 +10,13 @@ export function FinalCTASection() {
   return (
     <section className={styles.final}>
       <div className="wrap">
-        <h2 className={`display ${styles.title}`}>{finalCta.title}</h2>
-        <p className={styles.body}>{finalCta.body}</p>
-        <a className={`btn btnBig ${styles.button}`} href="#preorder">
-          Preorder the 3-Pack
-        </a>
+        <Reveal>
+          <h2 className={`display ${styles.title}`}>{finalCta.title}</h2>
+          <p className={styles.body}>{finalCta.body}</p>
+          <MotionCtaLink className={`btn btnBig ${styles.button}`} href="#preorder">
+            Preorder the 3-Pack
+          </MotionCtaLink>
+        </Reveal>
       </div>
     </section>
   );

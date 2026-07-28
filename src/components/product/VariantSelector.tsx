@@ -1,5 +1,6 @@
 "use client";
 
+import { MotionButton } from "@/components/motion/MotionButton";
 import type { ProductOption, StorefrontVariant } from "@/types/shopify";
 
 import styles from "./VariantSelector.module.css";
@@ -46,7 +47,7 @@ export function VariantSelector({
               const isAvailable = isValueAvailable(variants, selectedOptions, option.name, value);
 
               return (
-                <button
+                <MotionButton
                   key={value}
                   type="button"
                   className={[
@@ -59,7 +60,7 @@ export function VariantSelector({
                 >
                   {value}
                   {!isAvailable ? " (Sold out)" : ""}
-                </button>
+                </MotionButton>
               );
             })}
           </div>

@@ -1,5 +1,8 @@
 import Image from "next/image";
 
+import { Reveal } from "@/components/motion/Reveal";
+import { StaggerGroup } from "@/components/motion/StaggerGroup";
+import { StaggerItem } from "@/components/motion/StaggerItem";
 import { landingPageConfig } from "@/config/landing-page";
 
 import styles from "./PartnershipSection.module.css";
@@ -10,13 +13,15 @@ export function PartnershipSection() {
   return (
     <section className={styles.partners}>
       <div className="wrap">
-        <span className="label" style={{ color: "var(--red)" }}>
-          {partnership.eyebrow}
-        </span>
-        <h2 className={`display ${styles.heading}`}>{partnership.title}</h2>
-        <div className={styles.grid}>
+        <Reveal>
+          <span className="label" style={{ color: "var(--red)" }}>
+            {partnership.eyebrow}
+          </span>
+          <h2 className={`display ${styles.heading}`}>{partnership.title}</h2>
+        </Reveal>
+        <StaggerGroup className={styles.grid}>
           {partnership.cards.map((card) => (
-            <div
+            <StaggerItem
               key={card.title}
               className={[styles.card, card.featured ? styles.cardFeatured : ""].join(" ")}
             >
@@ -63,9 +68,9 @@ export function PartnershipSection() {
                 </h3>
               )}
               <p className={styles.cardBody}>{card.body}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

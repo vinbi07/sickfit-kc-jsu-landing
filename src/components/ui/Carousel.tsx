@@ -2,6 +2,8 @@
 
 import { useRef, type ReactNode } from "react";
 
+import { MotionButton } from "@/components/motion/MotionButton";
+
 import styles from "./Carousel.module.css";
 
 type CarouselProps = {
@@ -33,22 +35,22 @@ export function Carousel({ className, children, ariaLabel, as = "div" }: Carouse
       >
         {children}
       </Track>
-      <button
+      <MotionButton
         type="button"
         className={`${styles.navBtn} ${styles.navPrev}`}
         aria-label="Previous"
         onClick={() => scrollByAmount(-1)}
       >
         ‹
-      </button>
-      <button
+      </MotionButton>
+      <MotionButton
         type="button"
         className={`${styles.navBtn} ${styles.navNext}`}
         aria-label="Next"
         onClick={() => scrollByAmount(1)}
       >
         ›
-      </button>
+      </MotionButton>
     </div>
   );
 }

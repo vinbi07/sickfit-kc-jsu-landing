@@ -1,3 +1,4 @@
+import { MotionCtaLink } from "@/components/motion/MotionCtaLink";
 import { landingPageConfig } from "@/config/landing-page";
 
 import styles from "./MobileStickyCta.module.css";
@@ -7,9 +8,9 @@ export function MobileStickyCta() {
 
   return (
     <div className={styles.bar}>
-      <a className={`btn btnBig ${styles.button}`} href="#preorder">
+      <MotionCtaLink className={`btn btnBig ${styles.button}`} href="#preorder">
         {header.ctaLabel}
-      </a>
+      </MotionCtaLink>
     </div>
   );
 }

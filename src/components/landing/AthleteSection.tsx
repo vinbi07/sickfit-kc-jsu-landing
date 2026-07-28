@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { MediaPlaceholder } from "@/components/media/MediaPlaceholder";
+import { Reveal } from "@/components/motion/Reveal";
 import { Carousel } from "@/components/ui/Carousel";
 import { landingPageConfig } from "@/config/landing-page";
 
@@ -12,20 +13,22 @@ export function AthleteSection() {
   return (
     <section className={styles.athletes}>
       <div className="wrap">
-        <div className={styles.sectionHead}>
-          <div className={styles.headingBlock}>
-            <span className={`label ${styles.eyebrow}`}>{athletes.eyebrow}</span>
-            <h2 className={`display ${styles.heading}`}>
-              {athletes.titleLineOne}
-              <br />
-              {athletes.titleLineTwo}
-            </h2>
+        <Reveal>
+          <div className={styles.sectionHead}>
+            <div className={styles.headingBlock}>
+              <span className={`label ${styles.eyebrow}`}>{athletes.eyebrow}</span>
+              <h2 className={`display ${styles.heading}`}>
+                {athletes.titleLineOne}
+                <br />
+                {athletes.titleLineTwo}
+              </h2>
+            </div>
+            <p className={styles.intro}>{athletes.intro}</p>
           </div>
-          <p className={styles.intro}>{athletes.intro}</p>
-        </div>
+        </Reveal>
         <Carousel className={styles.grid} ariaLabel="Athlete roster">
-          {athletes.roster.map((athlete) => (
-            <article className={styles.card} key={athlete.name}>
+          {athletes.roster.map((athlete, index) => (
+            <Reveal as="article" className={styles.card} delay={index * 0.08} key={athlete.name}>
               <span className={styles.number} aria-hidden="true">
                 {athlete.number}
               </span>
@@ -63,7 +66,7 @@ export function AthleteSection() {
                   ) : null}
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </Carousel>
       </div>

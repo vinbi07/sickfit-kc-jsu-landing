@@ -1,5 +1,7 @@
 "use client";
 
+import { MotionButton } from "@/components/motion/MotionButton";
+
 import styles from "./QuantitySelector.module.css";
 
 type QuantitySelectorProps = {
@@ -19,7 +21,7 @@ export function QuantitySelector({
 }: QuantitySelectorProps) {
   return (
     <div className={styles.group}>
-      <button
+      <MotionButton
         type="button"
         className={styles.button}
         aria-label="Decrease quantity"
@@ -27,11 +29,11 @@ export function QuantitySelector({
         onClick={() => onChange(Math.max(min, quantity - 1))}
       >
         −
-      </button>
+      </MotionButton>
       <span className={styles.value} aria-live="polite" aria-label={`Quantity: ${quantity}`}>
         {quantity}
       </span>
-      <button
+      <MotionButton
         type="button"
         className={styles.button}
         aria-label="Increase quantity"
@@ -39,7 +41,7 @@ export function QuantitySelector({
         onClick={() => onChange(Math.min(max, quantity + 1))}
       >
         +
-      </button>
+      </MotionButton>
     </div>
   );
 }

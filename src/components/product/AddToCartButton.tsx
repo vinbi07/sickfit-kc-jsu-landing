@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { useCart } from "@/components/cart/CartProvider";
+import { MotionButton } from "@/components/motion/MotionButton";
 
 import styles from "./AddToCartButton.module.css";
 
@@ -54,9 +55,9 @@ export function AddToCartButton({
 
   return (
     <div>
-      <button type="button" className="btn btnBig" disabled={disabled} onClick={handleClick}>
+      <MotionButton type="button" className="btn btnBig" disabled={disabled} onClick={handleClick}>
         {label}
-      </button>
+      </MotionButton>
       <p
         className={[
           styles.status,

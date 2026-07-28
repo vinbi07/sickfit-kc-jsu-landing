@@ -1,11 +1,25 @@
 "use client";
 
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef } from "react";
+
+import { MotionButton } from "@/components/motion/MotionButton";
+import { easeStd, getVariants } from "@/lib/motion";
 
 import { CartLineItem } from "./CartLineItem";
 import { useCart } from "./CartProvider";
 import { CartSummary } from "./CartSummary";
 import styles from "./CartDrawer.module.css";
+
+const overlayVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+const drawerVariants = {
+  hidden: { x: "100%", opacity: 0 },
+  visible: { x: 0, opacity: 1 },
+};
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
@@ -14,6 +28,7 @@ export function CartDrawer() {
   const { cart, isCartOpen, closeCart, cartError } = useCart();
   const drawerRef = useRef<HTMLDivElement>(null);
   const lastFocusedElement = useRef<HTMLElement | null>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     if (!isCartOpen) {
@@ -66,49 +81,63 @@ export function CartDrawer() {
     };
   }, [isCartOpen, closeCart]);
 
-  if (!isCartOpen) {
-    return null;
-  }
-
   const lines = cart?.lines.edges ?? [];
 
   return (
-    <>
-      <div className={styles.overlay} onClick={closeCart} aria-hidden="true" />
-      <div
-        ref={drawerRef}
-        className={styles.drawer}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="cart-drawer-title"
-      >
-        <div className={styles.header}>
-          <h2 id="cart-drawer-title" className={styles.title}>
-            Your Cart
-          </h2>
-          <button
-            type="button"
-            className={styles.closeButton}
+    <AnimatePresence>
+      {isCartOpen ? (
+        <>
+          <motion.div
+            className={styles.overlay}
             onClick={closeCart}
-            aria-label="Close cart"
+            aria-hidden="true"
+            variants={getVariants(Boolean(prefersReducedMotion), overlayVariants)}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            transition={easeStd}
+          />
+          <motion.div
+            ref={drawerRef}
+            className={styles.drawer}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cart-drawer-title"
+            variants={getVariants(Boolean(prefersReducedMotion), drawerVariants)}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            transition={easeStd}
           >
-            ✕
-          </button>
-        </div>
-        <div className={styles.body}>
-          {cartError ? (
-            <p className={styles.errorBanner} role="alert">
-              {cartError}
-            </p>
-          ) : null}
-          {lines.length === 0 ? (
-            <p className={styles.empty}>Your cart is empty.</p>
-          ) : (
-            lines.map(({ node }) => <CartLineItem key={node.id} line={node} />)
-          )}
-        </div>
-        {cart && lines.length > 0 ? <CartSummary cart={cart} /> : null}
-      </div>
-    </>
+            <div className={styles.header}>
+              <h2 id="cart-drawer-title" className={styles.title}>
+                Your Cart
+              </h2>
+              <MotionButton
+                type="button"
+                className={styles.closeButton}
+                onClick={closeCart}
+                aria-label="Close cart"
+              >
+                ✕
+              </MotionButton>
+            </div>
+            <div className={styles.body}>
+              {cartError ? (
+                <p className={styles.errorBanner} role="alert">
+                  {cartError}
+                </p>
+              ) : null}
+              {lines.length === 0 ? (
+                <p className={styles.empty}>Your cart is empty.</p>
+              ) : (
+                lines.map(({ node }) => <CartLineItem key={node.id} line={node} />)
+              )}
+            </div>
+            {cart && lines.length > 0 ? <CartSummary cart={cart} /> : null}
+          </motion.div>
+        </>
+      ) : null}
+    </AnimatePresence>
   );
 }
