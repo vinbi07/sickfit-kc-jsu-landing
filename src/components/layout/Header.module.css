@@ -18,26 +18,25 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  font-family: var(--font-anton), sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
   font-size: 15px;
   letter-spacing: 0.04em;
   flex-wrap: wrap;
   min-width: 0;
 }
 
-.sf {
-  color: var(--red);
+.logo {
+  height: 26px;
+  width: auto;
 }
 
-.kc {
-  color: var(--navy);
-  border: 1.5px solid var(--navy);
-  padding: 2px 7px;
-  white-space: nowrap;
+.kcLogo {
+  height: 24px;
+  width: auto;
 }
 
 .x {
-  font-family: var(--font-barlow), sans-serif;
+  font-family: var(--font-poppins), sans-serif;
   font-weight: 400;
   opacity: 0.4;
   font-size: 13px;
@@ -48,6 +47,12 @@
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+}
+
+@media (max-width: 820px) {
+  .desktopCta {
+    display: none !important;
+  }
 }
 
 @media (max-width: 520px) {

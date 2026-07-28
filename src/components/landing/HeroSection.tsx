@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { landingPageConfig } from "@/config/landing-page";
 
 import styles from "./HeroSection.module.css";
@@ -7,7 +9,15 @@ export function HeroSection({ displayedPrice }: { displayedPrice: string }) {
 
   return (
     <section className={styles.hero}>
-      <div className="wrap">
+      <Image
+        className={styles.heroImage}
+        src="/SickFitJSUKC-HeroImage.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+      />
+      <div className={`wrap ${styles.content}`}>
         <p className={`label ${styles.eyebrow}`}>{hero.eyebrow}</p>
         <h1 className={`display ${styles.title}`}>
           {hero.titleLineOne}

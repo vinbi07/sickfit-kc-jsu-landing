@@ -25,7 +25,7 @@ body {
 }
 
 body {
-  font-family: var(--font-barlow), Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
   background: var(--white);
   color: var(--navy);
   -webkit-font-smoothing: antialiased;
@@ -47,14 +47,15 @@ img {
 }
 
 .display {
-  font-family: var(--font-anton), sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
+  font-weight: 900;
   letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
 .label {
-  font-family: var(--font-barlow-condensed), sans-serif;
-  font-weight: 600;
+  font-family: var(--font-gilroy), sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 13px;
@@ -70,8 +71,8 @@ img {
   display: inline-block;
   background: var(--red);
   color: var(--white);
-  font-family: var(--font-barlow-condensed), sans-serif;
-  font-weight: 600;
+  font-family: var(--font-gilroy), sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 14px;
@@ -129,5 +130,11 @@ img {
 
   .btn:hover {
     transform: none;
+  }
+}
+
+@media (max-width: 820px) {
+  main {
+    padding-bottom: calc(84px + env(safe-area-inset-bottom));
   }
 }

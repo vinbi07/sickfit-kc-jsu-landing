@@ -1,3 +1,4 @@
+import { Carousel } from "@/components/ui/Carousel";
 import { landingPageConfig } from "@/config/landing-page";
 
 import styles from "./BenefitsSection.module.css";
@@ -12,7 +13,7 @@ export function BenefitsSection() {
           {benefits.eyebrow}
         </span>
         <h2 className={`display ${styles.heading}`}>{benefits.title}</h2>
-        <div className={styles.grid}>
+        <Carousel className={styles.grid} ariaLabel="Why SickFit">
           {benefits.cards.map((card) => (
             <div className={styles.card} key={card.title}>
               <span className={`label ${styles.cardIndex}`}>{card.index}</span>
@@ -20,7 +21,7 @@ export function BenefitsSection() {
               <p className={styles.cardBody}>{card.body}</p>
             </div>
           ))}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

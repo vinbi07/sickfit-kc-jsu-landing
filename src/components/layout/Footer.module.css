@@ -4,6 +4,23 @@
   border-top: 1px solid var(--line);
 }
 
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.logo {
+  height: 28px;
+  width: auto;
+}
+
+.kcLogo {
+  height: 24px;
+  width: auto;
+}
+
 .inner {
   display: flex;
   justify-content: space-between;

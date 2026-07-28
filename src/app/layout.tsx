@@ -1,31 +1,42 @@
 import type { Metadata } from "next";
-import { Anton, Barlow, Barlow_Condensed } from "next/font/google";
+import { Poppins } from "next/font/google";
+import localFont from "next/font/local";
 
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { MobileStickyCta } from "@/components/layout/MobileStickyCta";
 
 import "./globals.css";
 
-const anton = Anton({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-anton",
+const gilroy = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Gilroy-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Gilroy-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/Gilroy-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-gilroy",
   display: "swap",
 });
 
-const barlow = Barlow({
-  weight: ["400", "500", "600", "700"],
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-barlow",
-  display: "swap",
-});
-
-const barlowCondensed = Barlow_Condensed({
-  weight: ["500", "600"],
-  subsets: ["latin"],
-  variable: "--font-barlow-condensed",
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -43,7 +54,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${barlow.variable} ${barlowCondensed.variable}`}
+      className={`${gilroy.variable} ${poppins.variable}`}
     >
       <body>
         <CartProvider>
@@ -51,6 +62,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <CartDrawer />
+          <MobileStickyCta />
         </CartProvider>
       </body>
     </html>

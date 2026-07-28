@@ -8,7 +8,7 @@
 .track {
   display: inline-block;
   padding: 12px 0;
-  font-family: var(--font-anton), sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
   font-size: 16px;
   letter-spacing: 0.08em;
   animation: scroll 26s linear infinite;

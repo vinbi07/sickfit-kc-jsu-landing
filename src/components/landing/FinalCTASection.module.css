@@ -17,6 +17,16 @@
   color: rgba(255, 255, 255, 0.92);
 }
 
+@media (max-width: 480px) {
+  .title {
+    font-size: clamp(32px, 10vw, 84px);
+  }
+
+  .body {
+    font-size: 15px;
+  }
+}
+
 .button {
   background: var(--white);
   color: var(--red);

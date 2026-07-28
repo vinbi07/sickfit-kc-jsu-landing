@@ -1,4 +1,7 @@
+import Image from "next/image";
+
 import { MediaPlaceholder } from "@/components/media/MediaPlaceholder";
+import { Carousel } from "@/components/ui/Carousel";
 import { landingPageConfig } from "@/config/landing-page";
 
 import styles from "./AthleteSection.module.css";
@@ -20,7 +23,7 @@ export function AthleteSection() {
           </div>
           <p className={styles.intro}>{athletes.intro}</p>
         </div>
-        <div className={styles.grid}>
+        <Carousel className={styles.grid} ariaLabel="Athlete roster">
           {athletes.roster.map((athlete) => (
             <article className={styles.card} key={athlete.name}>
               <span className={styles.number} aria-hidden="true">
@@ -35,7 +38,18 @@ export function AthleteSection() {
                 <div className={styles.credential}>{athlete.credential}</div>
                 <div className={styles.quote}>
                   <div className={styles.quoteHead}>
-                    <div className={styles.avatar} aria-hidden="true" />
+                    {athlete.quote.avatarSrc ? (
+                      <Image
+                        className={styles.avatar}
+                        src={athlete.quote.avatarSrc}
+                        alt=""
+                        width={34}
+                        height={34}
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <div className={styles.avatar} aria-hidden="true" />
+                    )}
                     <div>
                       <div className={styles.quoteName}>{athlete.quote.name}</div>
                       <div className={styles.quoteHandle}>{athlete.quote.handle}</div>
@@ -51,7 +65,7 @@ export function AthleteSection() {
               </div>
             </article>
           ))}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

@@ -27,7 +27,7 @@
 }
 
 .title {
-  font-family: var(--font-anton), sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
   text-transform: uppercase;
   font-size: 22px;
 }
@@ -95,7 +95,7 @@
 .subtotalRow {
   display: flex;
   justify-content: space-between;
-  font-family: var(--font-anton), sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   margin: 12px 0 18px;

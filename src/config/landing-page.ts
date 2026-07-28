@@ -3,6 +3,7 @@ import type { MediaConfig } from "@/types/product";
 export type AthleteQuote = {
   name: string;
   handle: string;
+  avatarSrc?: string;
   quote: string;
   isDraft: boolean;
 };
@@ -59,7 +60,7 @@ export const landingPageConfig = {
         label: "The Driver",
         title: "KC-1400 Collective",
         featured: true,
-        body: "The collective behind this collab. KC-1400 exists to serve Jackson State student-athletes, building real NIL opportunities that put money in players' pockets. They represent the athletes and built this deal. Every pack sold pays the players. [Add KC-1400 blurb / link / logo]",
+        body: "The collective behind this collab. KC-1400 exists to serve Jackson State student-athletes, building real NIL opportunities that put money in players' pockets. They represent the athletes and built this deal. Every pack sold pays the players.",
       },
       {
         label: "The Players",
@@ -102,12 +103,14 @@ export const landingPageConfig = {
         name: "Kam Sallis",
         credential: "Preseason SWAC Defensive Player of the Year",
         photo: {
+          src: "/players/Athlete15.jpeg",
           alt: "Kam Sallis athlete photo",
           placeholderLabel: "Athlete photo · [kc1400 approved image]",
         },
         quote: {
           name: "Kam Sallis",
-          handle: "@[handle]",
+          handle: "@KameronSallis",
+          avatarSrc: "/players/kamSallistwitter.jpg",
           quote:
             "Everything I do starts from the ground up. If my feet aren't right by the fourth quarter, nothing else is. That's why this collab made sense to me.",
           isDraft: true,
@@ -119,12 +122,14 @@ export const landingPageConfig = {
         name: "Nate Rembert",
         credential: "Preseason All-SWAC First Team",
         photo: {
+          src: "/players/Athlete8.jpeg",
           alt: "Nate Rembert athlete photo",
           placeholderLabel: "Athlete photo · [kc1400 approved image]",
         },
         quote: {
           name: "Nate Rembert",
           handle: "@NateRembert",
+          avatarSrc: "/players/NateRembertTwitter.jpg",
           quote:
             "Routes get won on your feet. Fresh legs late in the game is the whole thing. Good socks aren't an accessory, they're equipment.",
           isDraft: true,
@@ -136,12 +141,14 @@ export const landingPageConfig = {
         name: "Jared Lockhart",
         credential: "Starting Quarterback",
         photo: {
+          src: "/players/Athlete11.jpeg",
           alt: "Jared Lockhart athlete photo",
           placeholderLabel: "Athlete photo · [kc1400 approved image]",
         },
         quote: {
           name: "Jared Lockhart",
-          handle: "@[handle]",
+          handle: "@lockhartjared1",
+          avatarSrc: "/players/jlockhearttwitter.jpg",
           quote:
             "I'm on my feet every snap and every practice in between. Recovery starts the second the cleats come off. These are part of how I take care of my body.",
           isDraft: true,

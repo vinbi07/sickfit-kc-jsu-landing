@@ -6,7 +6,7 @@
 }
 
 .price {
-  font-family: var(--font-anton), sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
   font-size: 30px;
 }
 
@@ -17,7 +17,7 @@
 }
 
 .availability {
-  font-family: var(--font-barlow-condensed), sans-serif;
+  font-family: var(--font-gilroy), sans-serif;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;

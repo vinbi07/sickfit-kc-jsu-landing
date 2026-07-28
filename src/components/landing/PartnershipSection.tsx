@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { landingPageConfig } from "@/config/landing-page";
 
 import styles from "./PartnershipSection.module.css";
@@ -19,13 +21,24 @@ export function PartnershipSection() {
               className={[styles.card, card.featured ? styles.cardFeatured : ""].join(" ")}
             >
               <span className="label">{card.label}</span>
-              <h3
-                className={[styles.cardTitle, card.featured ? styles.cardTitleFeatured : ""].join(
-                  " ",
-                )}
-              >
-                {card.title}
-              </h3>
+              {card.title === "KC-1400 Collective" ? (
+                <Image
+                  className={styles.cardLogo}
+                  src="/logos/KC1400Logo.png"
+                  alt="KC-1400 Collective"
+                  width={160}
+                  height={90}
+                />
+              ) : (
+                <h3
+                  className={[
+                    styles.cardTitle,
+                    card.featured ? styles.cardTitleFeatured : "",
+                  ].join(" ")}
+                >
+                  {card.title}
+                </h3>
+              )}
               <p className={styles.cardBody}>{card.body}</p>
             </div>
           ))}
