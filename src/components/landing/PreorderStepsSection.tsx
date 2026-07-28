@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/Icon";
 import { landingPageConfig } from "@/config/landing-page";
 
 import styles from "./PreorderStepsSection.module.css";
@@ -15,7 +16,8 @@ export function PreorderStepsSection() {
         <div className={styles.grid}>
           {preorderSteps.steps.map((step) => (
             <div className={styles.step} key={step.title}>
-              <span className={`label ${styles.stepLabel}`}>{step.label}</span>
+              <span className={styles.stepLabel}>{step.label}</span>
+              <Icon name={step.icon} className={styles.stepIcon} />
               <h3 className={styles.stepTitle}>{step.title}</h3>
               <p className={styles.stepBody}>{step.body}</p>
             </div>

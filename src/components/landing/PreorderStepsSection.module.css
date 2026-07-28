@@ -28,8 +28,28 @@
   padding-top: 20px;
 }
 
+.stepIcon {
+  display: block !important;
+  text-align: center;
+  font-size: 52px !important;
+  color: var(--red);
+  margin: 12px 12px 4px;
+}
+
 .stepLabel {
-  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #14315c 0%, var(--navy) 55%, #060f1e 100%);
+  color: var(--white);
+  font-family: var(--font-gilroy), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(11, 31, 58, 0.35);
 }
 
 .stepTitle {
@@ -37,11 +57,13 @@
   text-transform: uppercase;
   font-size: 21px;
   margin: 10px 0 12px;
+  text-align: center;
 }
 
 .stepBody {
   font-size: 15px;
   line-height: 1.65;
+  text-align: center;
   color: var(--muted);
 }
 

@@ -10,9 +10,8 @@ export function AnnouncementTicker() {
     <div className={styles.ticker} aria-hidden="true">
       <div className={styles.track}>
         {doubled.map((item, index) => (
-          <span key={`${item}-${index}`}>
+          <span className={styles.item} key={`${item}-${index}`}>
             {item}
-            {index < doubled.length - 1 ? " ●" : ""}
           </span>
         ))}
       </div>

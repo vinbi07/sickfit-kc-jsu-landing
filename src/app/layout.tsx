@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MobileStickyCta } from "@/components/layout/MobileStickyCta";
 
+import "material-symbols/outlined.css";
 import "./globals.css";
 
 const gilroy = localFont({
@@ -52,10 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${gilroy.variable} ${poppins.variable}`}
-    >
+    <html lang="en" className={`${gilroy.variable} ${poppins.variable}`}>
       <body>
         <CartProvider>
           <Header />

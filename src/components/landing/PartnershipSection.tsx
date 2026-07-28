@@ -5,7 +5,7 @@ import { landingPageConfig } from "@/config/landing-page";
 import styles from "./PartnershipSection.module.css";
 
 export function PartnershipSection() {
-  const { partnership } = landingPageConfig;
+  const { partnership, athletes } = landingPageConfig;
 
   return (
     <section className={styles.partners}>
@@ -29,6 +29,29 @@ export function PartnershipSection() {
                   width={160}
                   height={90}
                 />
+              ) : card.title === "SickFit" ? (
+                <Image
+                  className={styles.cardLogo}
+                  src="/logos/SickFIt Logo.png"
+                  alt="SickFit"
+                  width={100}
+                  height={99}
+                />
+              ) : card.title === "Student-Athletes" ? (
+                <div className={styles.athletePhotos}>
+                  {athletes.roster.map((athlete) => (
+                    <div className={styles.athletePhoto} key={athlete.name}>
+                      {athlete.photo.src ? (
+                        <Image
+                          src={athlete.photo.src}
+                          alt={athlete.photo.alt}
+                          fill
+                          sizes="60px"
+                        />
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
               ) : (
                 <h3
                   className={[

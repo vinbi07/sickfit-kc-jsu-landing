@@ -162,17 +162,20 @@ export const landingPageConfig = {
     title: "Built For Feet That Work",
     cards: [
       {
-        index: "01",
+        index: "1",
+        icon: "compress",
         title: "Graduated Compression",
         body: "Tighter at the ankle, easing up the calf. Supports circulation so legs feel fresher late in the day, or late in the game.",
       },
       {
-        index: "02",
+        index: "2",
+        icon: "shield",
         title: "Support Where It Counts",
         body: "Arch and ankle support built into the knit, with cushion in the heel and forefoot where impact lands.",
       },
       {
-        index: "03",
+        index: "3",
+        icon: "verified",
         title: "Made To Last The Season",
         body: "Performance fibers that hold their shape and compression wash after wash. Not a merch sock. A working sock in team colors.",
       },
@@ -186,16 +189,19 @@ export const landingPageConfig = {
     steps: [
       {
         label: "Step 1",
+        icon: "shopping_cart",
         title: "Order Now",
         body: "Place your preorder for $34.99. Your pack is reserved from the first production run.",
       },
       {
         label: "Step 2",
+        icon: "precision_manufacturing",
         title: "We Build The Run",
         body: "Production starts when preorder closes. You'll get email updates from order to ship.",
       },
       {
         label: "Step 3",
+        icon: "local_shipping",
         title: "Wear It Game Day",
         body: "Packs ship [SHIP WINDOW]. In your hands for football season.",
       },
