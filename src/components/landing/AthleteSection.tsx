@@ -27,8 +27,8 @@ export function AthleteSection() {
           </div>
         </Reveal>
         <Carousel className={styles.grid} ariaLabel="Athlete roster">
-          {athletes.roster.map((athlete, index) => (
-            <Reveal as="article" className={styles.card} delay={index * 0.08} key={athlete.name}>
+          {athletes.roster.map((athlete) => (
+            <article className={styles.card} key={athlete.name}>
               <span className={styles.number} aria-hidden="true">
                 {athlete.number}
               </span>
@@ -66,7 +66,7 @@ export function AthleteSection() {
                   ) : null}
                 </div>
               </div>
-            </Reveal>
+            </article>
           ))}
         </Carousel>
       </div>

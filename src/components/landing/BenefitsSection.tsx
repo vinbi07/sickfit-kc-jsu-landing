@@ -18,13 +18,13 @@ export function BenefitsSection() {
           <h2 className={`display ${styles.heading}`}>{benefits.title}</h2>
         </Reveal>
         <Carousel className={styles.grid} ariaLabel="Why SickFit">
-          {benefits.cards.map((card, index) => (
-            <Reveal as="div" className={styles.card} delay={index * 0.08} key={card.title}>
+          {benefits.cards.map((card) => (
+            <div className={styles.card} key={card.title}>
               <span className={styles.cardIndex}>{card.index}</span>
               <Icon name={card.icon} className={styles.cardIcon} />
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardBody}>{card.body}</p>
-            </Reveal>
+            </div>
           ))}
         </Carousel>
       </div>
