@@ -1,5 +1,7 @@
 import "server-only";
 
+import { cache } from "react";
+
 import { getServerEnv, isShopifyConfigured } from "@/lib/env";
 import type {
   CartPayload,
@@ -49,7 +51,6 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
 `;
 
 const PRODUCT_FRAGMENT = `#graphql
-  ${IMAGE_FRAGMENT}
   ${PRODUCT_VARIANT_FRAGMENT}
   fragment ProductFragment on Product {
     id
@@ -57,6 +58,13 @@ const PRODUCT_FRAGMENT = `#graphql
     handle
     featuredImage {
       ...ImageFragment
+    }
+    images(first: 20) {
+      edges {
+        node {
+          ...ImageFragment
+        }
+      }
     }
     options {
       name
@@ -110,7 +118,6 @@ const CART_LINE_FRAGMENT = `#graphql
 `;
 
 const CART_FRAGMENT = `#graphql
-  ${MONEY_FRAGMENT}
   ${CART_LINE_FRAGMENT}
   fragment CartFragment on Cart {
     id
@@ -183,6 +190,7 @@ function mapProductNode(node: {
   title: string;
   handle: string;
   featuredImage: StorefrontProduct["featuredImage"];
+  images: { edges: Array<{ node: StorefrontProduct["images"][number] }> };
   options: StorefrontProduct["options"];
   variants: { edges: Array<{ node: StorefrontProduct["variants"][number] }> };
 }): StorefrontProduct {
@@ -191,12 +199,13 @@ function mapProductNode(node: {
     title: node.title,
     handle: node.handle,
     featuredImage: node.featuredImage,
+    images: node.images.edges.map((edge) => edge.node),
     options: node.options,
     variants: node.variants.edges.map((edge) => edge.node),
   };
 }
 
-export async function getProductByHandle(
+export const getProductByHandle = cache(async function getProductByHandle(
   handle: string,
 ): Promise<StorefrontProduct | null> {
   const query = `#graphql
@@ -217,7 +226,7 @@ export async function getProductByHandle(
   }
 
   return mapProductNode(data.product);
-}
+});
 
 export async function createCart(): Promise<StorefrontCart> {
   const mutation = `#graphql

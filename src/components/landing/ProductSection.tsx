@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
-import { ProductMedia } from "@/components/media/ProductMedia";
+import { ColorSwatchSelector } from "@/components/product/ColorSwatchSelector";
+import { ProductGallery } from "@/components/product/ProductGallery";
 import { ProductPurchasePanel } from "@/components/product/ProductPurchasePanel";
 import { landingPageConfig } from "@/config/landing-page";
 import type { LandingProductConfig } from "@/types/product";
@@ -18,22 +19,28 @@ type ProductSectionProps = {
 export function ProductSection({ config, product }: ProductSectionProps) {
   const { product: productCopy } = landingPageConfig;
   const [activeVariant, setActiveVariant] = useState<StorefrontVariant | null>(null);
+  const [activeColor, setActiveColor] = useState<string | null>(null);
+  const [isCopyExpanded, setIsCopyExpanded] = useState(false);
 
-  const activeImage =
-    activeVariant?.image ?? product?.featuredImage ?? undefined;
+  const fallbackMedia = config.image ?? productCopy.productImage;
 
-  const media = activeImage
-    ? {
-        src: activeImage.url,
-        alt: activeImage.altText ?? config.image?.alt ?? config.title,
-        placeholderLabel: productCopy.productImage.placeholderLabel,
-      }
-    : config.image ?? productCopy.productImage;
+  const colorImage = useMemo(() => {
+    if (!activeColor || !product) return null;
+    return (
+      product.images.find((image) => image.url.toLowerCase().includes(activeColor.toLowerCase())) ??
+      null
+    );
+  }, [activeColor, product]);
 
   return (
     <section className={styles.product} id="preorder">
       <div className={`wrap ${styles.grid}`}>
-        <ProductMedia media={media} aspectRatio="4 / 5" />
+        <ProductGallery
+          images={product?.images ?? []}
+          fallback={fallbackMedia}
+          activeVariantImage={colorImage ?? activeVariant?.image}
+          aspectRatio="4 / 5"
+        />
         <div>
           <span className={`label ${styles.eyebrow}`}>{config.eyebrow}</span>
           <h2 className={`display ${styles.heading}`}>{config.title}</h2>
@@ -42,8 +49,20 @@ export function ProductSection({ config, product }: ProductSectionProps) {
             <span className={styles.highlight}>{productCopy.introHighlight}</span>
             {productCopy.intro.split(productCopy.introHighlight)[1]}
           </p>
-          <p className={[styles.body, styles.bodyStrong].join(" ")}>{productCopy.audience}</p>
-          <p className={styles.body}>{productCopy.body}</p>
+          <div
+            className={[styles.extraCopy, isCopyExpanded ? styles.extraCopyExpanded : ""].join(" ")}
+          >
+            <p className={[styles.body, styles.bodyStrong].join(" ")}>{productCopy.audience}</p>
+            <p className={styles.body}>{productCopy.body}</p>
+          </div>
+          <button
+            type="button"
+            className={styles.showMoreBtn}
+            aria-expanded={isCopyExpanded}
+            onClick={() => setIsCopyExpanded((current) => !current)}
+          >
+            {isCopyExpanded ? "Show less" : "Show more"}
+          </button>
 
           {config.includedItems ? (
             <ul className={styles.packList}>
@@ -54,6 +73,14 @@ export function ProductSection({ config, product }: ProductSectionProps) {
                 </li>
               ))}
             </ul>
+          ) : null}
+
+          {config.colorOptions ? (
+            <ColorSwatchSelector
+              colors={config.colorOptions}
+              activeColor={activeColor}
+              onSelect={setActiveColor}
+            />
           ) : null}
 
           {config.badges ? (

@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 
+import { pickDefaultVariant } from "@/lib/variants";
 import type { LandingProductConfig } from "@/types/product";
 import type { StorefrontProduct, StorefrontVariant } from "@/types/shopify";
 
@@ -23,10 +24,6 @@ function formatMoney(amount: string, currencyCode: string) {
     style: "currency",
     currency: currencyCode,
   }).format(Number.isFinite(value) ? value : 0);
-}
-
-function pickDefaultVariant(variants: StorefrontVariant[]) {
-  return variants.find((variant) => variant.availableForSale) ?? variants[0] ?? null;
 }
 
 export function ProductPurchasePanel({ config, product, onVariantChange }: ProductPurchasePanelProps) {

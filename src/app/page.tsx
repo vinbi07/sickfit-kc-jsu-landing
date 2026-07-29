@@ -6,35 +6,16 @@ import { HeroSection } from "@/components/landing/HeroSection";
 import { PartnershipSection } from "@/components/landing/PartnershipSection";
 import { PreorderStepsSection } from "@/components/landing/PreorderStepsSection";
 import { ProductSection } from "@/components/landing/ProductSection";
-import { getPrimaryLandingProduct } from "@/config/products";
-import { isShopifyConfigured } from "@/lib/env";
-import { getProductByHandle } from "@/lib/shopify-storefront";
-import type { StorefrontProduct } from "@/types/shopify";
+import { MobileStickyCta } from "@/components/layout/MobileStickyCta";
+import { getPrimaryProductSnapshot } from "@/lib/primary-product";
 
 export default async function Home() {
-  const productConfig = getPrimaryLandingProduct();
-
-  let shopifyProduct: StorefrontProduct | null = null;
-  if (productConfig?.productHandle && isShopifyConfigured()) {
-    try {
-      shopifyProduct = await getProductByHandle(productConfig.productHandle);
-    } catch (error) {
-      console.error("[page] failed to load product", error);
-      shopifyProduct = null;
-    }
-  }
-
-  const displayedPrice =
-    shopifyProduct?.variants[0]?.price.amount != null
-      ? new Intl.NumberFormat("en-US", {
-          style: "currency",
-          currency: shopifyProduct.variants[0].price.currencyCode,
-        }).format(Number(shopifyProduct.variants[0].price.amount))
-      : productConfig?.displayedPrice ?? "";
+  const { productConfig, shopifyProduct, defaultVariant, priceLabel } =
+    await getPrimaryProductSnapshot();
 
   return (
     <main>
-      <HeroSection displayedPrice={displayedPrice} />
+      <HeroSection displayedPrice={priceLabel} />
       <AnnouncementTicker />
       <PartnershipSection />
       {productConfig ? <ProductSection config={productConfig} product={shopifyProduct} /> : null}
@@ -42,6 +23,12 @@ export default async function Home() {
       <BenefitsSection />
       <PreorderStepsSection />
       <FinalCTASection />
+      <MobileStickyCta
+        variantId={defaultVariant?.id}
+        isAvailable={Boolean(defaultVariant?.availableForSale)}
+        isConfigured={Boolean(defaultVariant)}
+        priceLabel={priceLabel}
+      />
     </main>
   );
 }

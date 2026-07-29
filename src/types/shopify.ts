@@ -36,6 +36,7 @@ export interface StorefrontProduct {
   title: string;
   handle: string;
   featuredImage: StorefrontImage | null;
+  images: StorefrontImage[];
   options: ProductOption[];
   variants: StorefrontVariant[];
 }

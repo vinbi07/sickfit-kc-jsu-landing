@@ -18,20 +18,7 @@ export const landingProducts: LandingProductConfig[] = [
       alt: "SickFit x KC-1400 Game Day 3-Pack",
       placeholderLabel: "Product shot placeholder — 3-pack hero image or flat lay",
     },
-    includedItems: [
-      {
-        title: "Pair 1: [Colorway name]",
-        detail: "[Crew / mid-calf, style TBD]",
-      },
-      {
-        title: "Pair 2: [Colorway name]",
-        detail: "[Crew / mid-calf, style TBD]",
-      },
-      {
-        title: "Pair 3: [Colorway name]",
-        detail: "[Crew / mid-calf, style TBD]",
-      },
-    ],
+    colorOptions: [{ name: "Navy" }, { name: "Red" }, { name: "White" }],
     badges: ["Preorder price is final", "Discount codes do not apply"],
   },
 ];

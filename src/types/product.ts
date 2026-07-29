@@ -19,5 +19,6 @@ export type LandingProductConfig = {
     title: string;
     detail: string;
   }[];
+  colorOptions?: { name: string }[];
   badges?: string[];
 };

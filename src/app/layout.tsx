@@ -6,7 +6,6 @@ import { CartDrawer } from "@/components/cart/CartDrawer";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
-import { MobileStickyCta } from "@/components/layout/MobileStickyCta";
 
 import "material-symbols/outlined.css";
 import "./globals.css";
@@ -60,7 +59,6 @@ export default function RootLayout({
           {children}
           <Footer />
           <CartDrawer />
-          <MobileStickyCta />
         </CartProvider>
       </body>
     </html>
