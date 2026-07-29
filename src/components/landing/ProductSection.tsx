@@ -32,6 +32,30 @@ export function ProductSection({ config, product }: ProductSectionProps) {
     );
   }, [activeColor, product]);
 
+  const productCopyBlock = (
+    <>
+      <p className={styles.body}>
+        {productCopy.intro.split(productCopy.introHighlight)[0]}
+        <span className={styles.highlight}>{productCopy.introHighlight}</span>
+        {productCopy.intro.split(productCopy.introHighlight)[1]}
+      </p>
+      <div
+        className={[styles.extraCopy, isCopyExpanded ? styles.extraCopyExpanded : ""].join(" ")}
+      >
+        <p className={[styles.body, styles.bodyStrong].join(" ")}>{productCopy.audience}</p>
+        <p className={styles.body}>{productCopy.body}</p>
+      </div>
+      <button
+        type="button"
+        className={styles.showMoreBtn}
+        aria-expanded={isCopyExpanded}
+        onClick={() => setIsCopyExpanded((current) => !current)}
+      >
+        {isCopyExpanded ? "Show less" : "Show more"}
+      </button>
+    </>
+  );
+
   return (
     <section className={styles.product} id="preorder">
       <div className={`wrap ${styles.grid}`}>
@@ -44,25 +68,7 @@ export function ProductSection({ config, product }: ProductSectionProps) {
         <div>
           <span className={`label ${styles.eyebrow}`}>{config.eyebrow}</span>
           <h2 className={`display ${styles.heading}`}>{config.title}</h2>
-          <p className={styles.body}>
-            {productCopy.intro.split(productCopy.introHighlight)[0]}
-            <span className={styles.highlight}>{productCopy.introHighlight}</span>
-            {productCopy.intro.split(productCopy.introHighlight)[1]}
-          </p>
-          <div
-            className={[styles.extraCopy, isCopyExpanded ? styles.extraCopyExpanded : ""].join(" ")}
-          >
-            <p className={[styles.body, styles.bodyStrong].join(" ")}>{productCopy.audience}</p>
-            <p className={styles.body}>{productCopy.body}</p>
-          </div>
-          <button
-            type="button"
-            className={styles.showMoreBtn}
-            aria-expanded={isCopyExpanded}
-            onClick={() => setIsCopyExpanded((current) => !current)}
-          >
-            {isCopyExpanded ? "Show less" : "Show more"}
-          </button>
+          <div className={styles.copyDesktop}>{productCopyBlock}</div>
 
           {config.includedItems ? (
             <ul className={styles.packList}>
@@ -94,6 +100,8 @@ export function ProductSection({ config, product }: ProductSectionProps) {
           ) : null}
 
           <ProductPurchasePanel config={config} product={product} onVariantChange={setActiveVariant} />
+
+          <div className={styles.copyMobile}>{productCopyBlock}</div>
         </div>
       </div>
     </section>
