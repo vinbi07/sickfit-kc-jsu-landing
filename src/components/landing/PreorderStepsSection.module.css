@@ -72,3 +72,38 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .how {
+    padding: 48px 0;
+  }
+
+  .grid {
+    gap: 22px;
+    margin-top: 26px;
+  }
+
+  .step {
+    padding-top: 14px;
+  }
+
+  .stepIcon {
+    font-size: 36px !important;
+    margin: 6px 12px 2px;
+  }
+
+  .stepLabel {
+    font-size: 11px;
+    padding: 6px 14px;
+  }
+
+  .stepTitle {
+    font-size: 18px;
+    margin: 8px 0 8px;
+  }
+
+  .stepBody {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+}

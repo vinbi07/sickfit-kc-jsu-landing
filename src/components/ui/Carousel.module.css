@@ -29,40 +29,37 @@
   }
 }
 
-.navBtn {
+.dots {
   display: none;
 }
 
 @media (max-width: 820px) {
-  .navBtn {
+  .dots {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.92);
-    color: var(--navy);
-    font-size: 20px;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 2;
+    gap: 8px;
+    margin-top: 14px;
   }
 
-  .navBtn:focus-visible {
+  .dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: var(--line);
+    cursor: pointer;
+    transition: width 0.2s ease, background 0.2s ease;
+  }
+
+  .dot:focus-visible {
     outline: 3px solid var(--red);
     outline-offset: 2px;
   }
 
-  .navPrev {
-    left: 4px;
-  }
-
-  .navNext {
-    right: 4px;
+  .dotActive {
+    width: 22px;
+    background: var(--red);
   }
 }

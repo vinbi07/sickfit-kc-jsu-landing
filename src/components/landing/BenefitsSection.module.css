@@ -67,3 +67,38 @@
   text-align: center;
 }
 
+@media (max-width: 480px) {
+  .why {
+    padding: 48px 0;
+  }
+
+  .grid {
+    margin-top: 26px;
+  }
+
+  .card {
+    padding: 20px 18px;
+  }
+
+  .cardIcon {
+    font-size: 36px !important;
+    margin: 6px 12px;
+  }
+
+  .cardIndex {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+    margin: 8px 0 8px;
+  }
+
+  .cardBody {
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+}
+

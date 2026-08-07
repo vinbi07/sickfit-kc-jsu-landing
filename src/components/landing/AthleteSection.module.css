@@ -26,12 +26,52 @@
 }
 
 @media (max-width: 480px) {
+  .athletes {
+    padding: 48px 0;
+  }
+
+  .sectionHead {
+    margin-bottom: 24px;
+  }
+
   .heading {
     font-size: clamp(28px, 8vw, 56px);
   }
 
   .intro {
     font-size: 14px;
+  }
+
+  .photoFrame {
+    aspect-ratio: 3 / 2.8;
+  }
+
+  .cardBody {
+    padding: 16px 16px 0;
+  }
+
+  .name {
+    font-size: 22px;
+    margin: 6px 0 8px;
+  }
+
+  .credential {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .quote {
+    margin: 14px 16px 0;
+    padding: 14px 14px 10px;
+  }
+
+  .quoteHead {
+    margin-bottom: 8px;
+  }
+
+  .quoteText {
+    font-size: 13.5px;
+    line-height: 1.45;
   }
 }
 
