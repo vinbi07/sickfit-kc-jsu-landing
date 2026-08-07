@@ -182,7 +182,7 @@
   opacity: 0.75;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .athletes {
     padding: 48px 0;
   }
@@ -265,7 +265,7 @@
   }
 
   .position {
-    font-size: 9px;
+    font-size: 9.5px;
   }
 }
 
