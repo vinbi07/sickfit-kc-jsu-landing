@@ -264,7 +264,7 @@
     line-height: 1.45;
   }
 
-  .position {
+  .cardBody .position {
     font-size: 9.5px;
   }
 }
